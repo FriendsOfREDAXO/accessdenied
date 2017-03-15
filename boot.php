@@ -18,7 +18,7 @@ if (rex::isBackend()) {
 } else {
     rex_extension::register('PACKAGES_INCLUDED', function () {
         if (rex_article::getCurrent()->getValue('status') == 2 && !rex::getUser()) {
-            rex_redirect(rex_article::getNotfoundArticleId(),rex_clang::getCurrentId());
+            rex_redirect(rex_article::getNotfoundArticleId(), rex_clang::getCurrentId());
         }
     }, rex_extension::LATE);
 }
