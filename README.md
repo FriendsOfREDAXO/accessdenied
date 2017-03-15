@@ -1,4 +1,7 @@
 # Access denied / Zugriff verweigert
+
+![Screenshot](https://raw.githubusercontent.com/FriendsOfREDAXO/accessdenied/assets/screenshot.png)
+
 Mit diesem AddOn werden Kategorien und Artikel um einen weiteren Status erweitert (kein Patch, sauber über EP).
 Es steht ein zusätzlicher Status "gesperrt" zur Verfügung. Damit kann der Artikel nicht im Frontend aufgerufen werden. (eines der häufigsten Kundenanfragen)
 
