@@ -40,5 +40,5 @@ Voraussetzungen
 
 Credits
 -----
-Koala (Sven Eichler) für die REDAXO 4 Version
-REX 5 Port by @Hirbod
+* Koala (Sven Eichler) für die REDAXO 4 Version
+* REX 5 Port by @Hirbod
