@@ -1,0 +1,5 @@
+accessdenied_blocked = Cerrado
+
+# Benennung für die Addonrechte, sichtbar innerhalb der REDAXO-Administration unter Benutzer > Rollen > Allgemein
+
+perm_general_accessdenied[] = Permisos denegado para Addon
