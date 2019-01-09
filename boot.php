@@ -15,7 +15,9 @@ if (rex::isBackend()) {
 
         return $ep->getSubject();
     });
-    rex_view::addCssFile($this->getAssetsUrl('accessdenied_quicknavi.css'));
+    if (rex_addon::get('quick_navigation')->isAvailable()) {
+        rex_view::addCssFile($this->getAssetsUrl('accessdenied_quicknavi.css'));
+    }
 } else {
     rex_extension::register('PACKAGES_INCLUDED', function () {
         if (rex_article::getCurrent()->getValue('status') == 2 && !rex_backend_login::hasSession()) {
