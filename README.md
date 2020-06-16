@@ -1,4 +1,5 @@
 # Access denied / Zugriff verweigert
+## Artikel im Frontend sperren
 
 ![Screenshot](https://raw.githubusercontent.com/FriendsOfREDAXO/accessdenied/assets/screenshot.png)
 
@@ -11,8 +12,8 @@ Es wird automatisch auf den Notfound-Artikel geleitet. Der Headerstatus wird auf
 
 How-To
 ------------
-Einfach ein weiterer Klick bei online/offline. Statusfarbe und Icon entsprechen des Status offline.
-Text: gesperrt / blocked
+Einfach ein weiterer Klick bei online/offline. (bzw. in neueren REDAXO Versionen erscheint ein Dropdown) 
+Statusfarbe und Icon sind analog zu "offline".
 
 Sprachen
 ------------
@@ -39,6 +40,10 @@ Voraussetzungen
 * PHP 7.*
 * structure Addon
 
+Known issues
+------------
+https://github.com/FriendsOfREDAXO/accessdenied/issues/22
+Artikel in einer Multidomainumgebung sind unter Umständen auch für eingeloggte User nicht aufrufbar, da sich die URL unterscheidet. Ich arbeite an einer Lösung
 
 Credits
 -----
