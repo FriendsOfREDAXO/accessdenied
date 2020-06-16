@@ -35,7 +35,8 @@ Oder den REDAXO-Installer / ZIP-Upload AddOn nutzen!
 Voraussetzungen
 ------------
 
-* REDAXO >= 7.*
+* REDAXO >= 5.1.0
+* PHP 7.*
 * structure Addon
 
 
