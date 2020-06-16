@@ -1,25 +1,27 @@
 # Access denied / Zugriff verweigert
+## Artikel im Frontend sperren
 
 ![Screenshot](https://raw.githubusercontent.com/FriendsOfREDAXO/accessdenied/assets/screenshot.png)
 
-Mit diesem AddOn werden Kategorien und Artikel um einen weiteren Status erweitert (kein Patch, sauber über EP).
-Es steht ein zusätzlicher Status "gesperrt" zur Verfügung. Damit kann der Artikel nicht im Frontend aufgerufen werden. (eines der häufigsten Kundenanfragen)
+Mit diesem AddOn werden Kategorien und Artikel um einen weiteren Status erweitert (kein Patch der Struktur, sauber über einen EP).
+Es wird ein zusätzliches Statusfeld "gesperrt" registriert. Damit kann der Artikel nicht mehr Frontend aufgerufen werden, auch wenn der Link bekannt ist. 
 
-Hinweis: eingeloggte Backenduser (keine Permission notwendig) sind von der Weiterleitung nicht betroffen.
-Es wird automatisch auf den Notfound-Artikel geleitet. Header-Status 302! (temporäre Weiterleitung)
+Hinweis: eingeloggte Backenduser (keine Permission oder Einstellung notwendig) sind von der Weiterleitung nicht betroffen und können weiterhin den Artikel im Frontend aufrufen. Wichtig ist, dass man hierzu über die selbe Domain im Backend eingeloggt ist.
+
+Es wird automatisch auf den Notfound-Artikel geleitet. Der Headerstatus wird auf *302* gesetzt (temporäre Weiterleitung).
 
 How-To
 ------------
-Einfach ein weiterer Klick bei online/offline. Statusfarbe und Icon entsprechen des Status offline.
-Text: gesperrt / blocked
+Einfach ein weiterer Klick bei online/offline. (bzw. in neueren REDAXO Versionen erscheint ein Dropdown) 
+Statusfarbe und Icon sind analog zu "offline".
 
 Sprachen
 ------------
-Deutsch und Englisch (PRs välkommen ;))
+Siehe hier: https://github.com/FriendsOfREDAXO/accessdenied/tree/master/lang
 
 Settingspage
 ------------
-Dieses AddOn hat keine Konfigurationsparameter. Es muss nichts gemacht werden, alles läuft vollautomatisch.
+Dieses AddOn hat keine Konfigurationsparameter.
 
 Installation
 ------------
@@ -35,8 +37,13 @@ Voraussetzungen
 ------------
 
 * REDAXO >= 5.1.0
+* PHP 7.*
 * structure Addon
 
+Known issues
+------------
+https://github.com/FriendsOfREDAXO/accessdenied/issues/22
+Artikel in einer Multidomainumgebung sind unter Umständen auch für eingeloggte User nicht aufrufbar, da sich die URL unterscheidet. Ich arbeite an einer Lösung
 
 Credits
 -----
