@@ -2,11 +2,12 @@
 
 ![Screenshot](https://raw.githubusercontent.com/FriendsOfREDAXO/accessdenied/assets/screenshot.png)
 
-Mit diesem AddOn werden Kategorien und Artikel um einen weiteren Status erweitert (kein Patch, sauber über EP).
-Es steht ein zusätzlicher Status "gesperrt" zur Verfügung. Damit kann der Artikel nicht im Frontend aufgerufen werden. (eines der häufigsten Kundenanfragen)
+Mit diesem AddOn werden Kategorien und Artikel um einen weiteren Status erweitert (kein Patch der Struktur, sauber über einen EP).
+Es wird ein zusätzliches Statusfeld "gesperrt" registriert. Damit kann der Artikel nicht mehr Frontend aufgerufen werden, auch wenn der Link bekannt ist. 
 
-Hinweis: eingeloggte Backenduser (keine Permission notwendig) sind von der Weiterleitung nicht betroffen.
-Es wird automatisch auf den Notfound-Artikel geleitet. Header-Status 302! (temporäre Weiterleitung)
+Hinweis: eingeloggte Backenduser (keine Permission oder Einstellung notwendig) sind von der Weiterleitung nicht betroffen und können weiterhin den Artikel im Frontend aufrufen. Wichtig ist, dass man hierzu über die selbe Domain im Backend eingeloggt ist.
+
+Es wird automatisch auf den Notfound-Artikel geleitet. Der Headerstatus wird auf *302* gesetzt (temporäre Weiterleitung).
 
 How-To
 ------------
@@ -15,11 +16,11 @@ Text: gesperrt / blocked
 
 Sprachen
 ------------
-Deutsch und Englisch (PRs välkommen ;))
+Siehe hier: https://github.com/FriendsOfREDAXO/accessdenied/tree/master/lang
 
 Settingspage
 ------------
-Dieses AddOn hat keine Konfigurationsparameter. Es muss nichts gemacht werden, alles läuft vollautomatisch.
+Dieses AddOn hat keine Konfigurationsparameter.
 
 Installation
 ------------
@@ -34,7 +35,7 @@ Oder den REDAXO-Installer / ZIP-Upload AddOn nutzen!
 Voraussetzungen
 ------------
 
-* REDAXO >= 5.1.0
+* REDAXO >= 7.*
 * structure Addon
 
 
