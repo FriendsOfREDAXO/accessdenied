@@ -1,51 +1,37 @@
 # Access denied / Zugriff verweigert
-## Artikel im Frontend sperren
+
+REDAXO-Artikel und Kategorien mit dem Status "offline" sind standardmäßig dennoch über das Frontend erreichbar. Mit diesem AddOn werden Kategorien und Artikel um einen weiteren Status "gesperrt" erweitert.
 
 ![Screenshot](https://raw.githubusercontent.com/FriendsOfREDAXO/accessdenied/assets/screenshot.png)
 
-Mit diesem AddOn werden Kategorien und Artikel um einen weiteren Status erweitert (kein Patch der Struktur, sauber über einen EP).
-Es wird ein zusätzliches Statusfeld "gesperrt" registriert. Damit kann der Artikel nicht mehr Frontend aufgerufen werden, auch wenn der Link bekannt ist. 
+## Funktionen
 
-Hinweis: eingeloggte Backenduser (keine Permission oder Einstellung notwendig) sind von der Weiterleitung nicht betroffen und können weiterhin den Artikel im Frontend aufrufen. Wichtig ist, dass man hierzu über die selbe Domain im Backend eingeloggt ist.
+* Es wird ein zusätzliches Statusfeld "gesperrt" registriert.
+* Gesperrte Artikel leiten im Frontend automatisch auf den Fehler-Artikel weiter.
+* Artikel bleiben für eingeloggte REDAXO-Benutzer sichtbar. 
+* Der Status `gesperrt` kann für neue Artikel und Kategorien als Standard-Status eingestellt werden.
 
-Es wird automatisch auf den Notfound-Artikel geleitet. Der Headerstatus wird auf *302* gesetzt (temporäre Weiterleitung).
+## Installation
 
-How-To
-------------
-Einfach ein weiterer Klick bei online/offline. (bzw. in neueren REDAXO Versionen erscheint ein Dropdown) 
-Statusfarbe und Icon sind analog zu "offline".
+* Voraussetzungen: REDAXO `>= 5.1.0`, PHP `>= 7`, `structure`-Addon
+* Über den REDAXO-Installer herunterladen und installieren. Es sind keine weiteren Schritte nötig.
 
-Sprachen
-------------
-Siehe hier: https://github.com/FriendsOfREDAXO/accessdenied/tree/master/lang
+Anschließend lässt sich in der Struktur jeder Artikel und jede Kategorie der zusätzliche Status `gesperrt` festlegen.
 
-Settingspage
-------------
-Dieses AddOn hat keine Konfigurationsparameter.
+## Einstellungen
 
-Installation
-------------
-Hinweis: dies ist kein Plugin!
+Auf der AddOn-Einstellungsseite "Artikelsperre" lässt sich auswählen, ob neue Artikel und Kategorien standardmäßig offline, online oder gesperrt angelegt werden.
 
-* Release herunterladen und entpacken.
-* Ordner umbenennen in `accessdenied`.
-* In den Addons-Ordner legen: `/redaxo/src/addons`.
+## Hinweise zur Nutzung
 
-Oder den REDAXO-Installer / ZIP-Upload AddOn nutzen!
+In Multi-Domain-Umgebungen muss der REDAXO-Benutzer unter der jeweiligen Domain eingeloggt sein, um den Artikel im gesperrten Zustand im Frontend ansehen zu können, siehe:  https://github.com/FriendsOfREDAXO/accessdenied/issues/22
 
-Voraussetzungen
-------------
+## Lizenz
 
-* REDAXO >= 5.1.0
-* PHP 7.*
-* structure Addon
+[MIT Lizenz](LICENSE.md)
 
-Known issues
-------------
-https://github.com/FriendsOfREDAXO/accessdenied/issues/22
-Artikel in einer Multidomainumgebung sind unter Umständen auch für eingeloggte User nicht aufrufbar, da sich die URL unterscheidet. Ich arbeite an einer Lösung
+## Autoren
 
-Credits
------
-* Koala (Sven Eichler) für die REDAXO 4 Version
-* REX 5 Port by @Hirbod
+* REDAXO 4 Version: Koala (Sven Eichler)
+* Portierung zu REDAXO 5: @Hirbod
+* Default-Status: Alexander Walther @alxndr-w
