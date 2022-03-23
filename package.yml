@@ -1,5 +1,5 @@
 package: accessdenied
-version: '1.0.7'
+version: '1.1.0'
 author: Friends Of REDAXO
 supportpage: github.com/FriendsOfREDAXO/accessdenied
 
@@ -9,3 +9,12 @@ requires:
     redaxo: '^5.1.0'
     php:
         version: '^7.0'
+
+page:
+    title: 'translate:accessdenied_title'
+    icon: rex-icon fa-unlock-alt
+    perm: admin
+
+
+default_config:
+    default_status: 0

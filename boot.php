@@ -18,6 +18,11 @@ if (rex::isBackend()) {
     if (rex_addon::get('quick_navigation')->isAvailable()) {
         rex_view::addCssFile($this->getAssetsUrl('accessdenied_quicknavi.css'));
     }
+
+    // set a default status on new articles
+    rex_extension::register('ART_ADDED', ['accessdenied', 'setDefaultArticleStatus']);
+    rex_extension::register('CAT_ADDED', ['accessdenied', 'setDefaultCategoryStatus']);
+
 } else {
     rex_extension::register('PACKAGES_INCLUDED', function () {
         if (rex_article::getCurrent() instanceof rex_article && rex_article::getCurrent()->getValue('status') == 2 && !rex_backend_login::hasSession()) {
