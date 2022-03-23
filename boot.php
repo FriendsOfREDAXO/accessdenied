@@ -20,7 +20,8 @@ if (rex::isBackend()) {
     }
 
     // set a default status on new articles
-    rex_extension::register('ART_ADDED', "accessdenied::setDefaultStatus");
+    rex_extension::register('ART_ADDED', ['accessdenied', 'setDefaultArticleStatus']);
+    rex_extension::register('CAT_ADDED', ['accessdenied', 'setDefaultCategoryStatus']);
 
 } else {
     rex_extension::register('PACKAGES_INCLUDED', function () {

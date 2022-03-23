@@ -1,8 +1,13 @@
 accessdenied_blocked = gesperrt
+accessdenied_title = Artikelsperre
 
 # Benennung für die Addonrechte, sichtbar innerhalb der REDAXO-Administration unter Benutzer > Rollen > Allgemein
 
 perm_general_accessdenied[] = Recht Für Accessdenied-AddOn
+
+# Einstellungsseite
+
+accessdeined_settings = Einstellungen
 
 accessdeined_settings_default_staus_label = Standard-Status für neue Artikel / Kategorien
 accessdeined_settings_default_staus_notice = Wenn ein neuer Artikel in der Struktur erstellt wird, wird dieser Status gesetzt. Im Live-Betrieb sollte der Artikel zunächst gesperrt bleiben, bei der Entwicklung kann standardmäßig alles direkt veröffentlicht werden.

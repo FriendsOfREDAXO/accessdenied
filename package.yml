@@ -11,7 +11,7 @@ requires:
         version: '^7.0'
 
 page:
-    title: 'Artikelsperre'
+    title: 'translate:accessdenied_title'
     perm: admin
 
 default_config:
