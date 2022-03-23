@@ -9,9 +9,9 @@ perm_general_accessdenied[] = Recht Für Accessdenied-AddOn
 
 accessdeined_settings = Einstellungen
 
-accessdeined_settings_default_staus_label = Standard-Status für neue Artikel / Kategorien
-accessdeined_settings_default_staus_notice = Wenn ein neuer Artikel in der Struktur erstellt wird, wird dieser Status gesetzt. Im Live-Betrieb sollte der Artikel zunächst gesperrt bleiben, bei der Entwicklung kann standardmäßig alles direkt veröffentlicht werden.
+accessdeined_settings_default_status_label = Standard-Status für neue Artikel / Kategorien
+accessdeined_settings_default_status_notice = Wenn ein neuer Artikel in der Struktur erstellt wird, wird dieser Status gesetzt. Im Live-Betrieb sollte der Artikel zunächst gesperrt bleiben, bei der Entwicklung kann standardmäßig alles direkt veröffentlicht werden.
 
-accessdeined_settings_default_staus_online = online
-accessdeined_settings_default_staus_offline = offline (REDAXO-Standard)
-accessdeined_settings_default_staus_blocked = gesperrt (empfohlen)
+accessdeined_settings_default_status_online = online
+accessdeined_settings_default_status_offline = offline (REDAXO-Standard)
+accessdeined_settings_default_status_blocked = gesperrt (empfohlen)
