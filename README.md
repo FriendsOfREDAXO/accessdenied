@@ -7,7 +7,7 @@ REDAXO-Artikel und Kategorien mit dem Status "offline" sind standardmäßig denn
 ## Funktionen
 
 * Es wird ein zusätzliches Statusfeld "gesperrt" registriert.
-* Gesperrte Artikel leiten im Frontend automatisch auf den Fehler-Artikel weiter.
+* Gesperrte Artikel leiten im Frontend automatisch auf den Fehler-Artikel weiter, mit dem Status-Code `307` (Temporäre Weiterleitung).
 * Artikel bleiben für eingeloggte REDAXO-Benutzer sichtbar. 
 * Der Status `gesperrt` kann für neue Artikel und Kategorien als Standard-Status eingestellt werden.
 
