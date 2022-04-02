@@ -8,7 +8,7 @@ requires:
         structure: '^2.1.0'
     redaxo: '^5.1.0'
     php:
-        version: '>=7.0,9'
+        version: '>=7.0,<9'
 
 page:
     title: 'translate:accessdenied_title'
