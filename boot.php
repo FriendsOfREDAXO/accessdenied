@@ -33,7 +33,7 @@ if (rex::isFrontend()) {
 }
 
 if (rex::isBackend()) {
-
+    $linkparameter = $package->getConfig('linkparameter');
     // set a default status on new articles
     rex_extension::register('ART_ADDED', ['accessdenied', 'setDefaultArticleStatus']);
     rex_extension::register('CAT_ADDED', ['accessdenied', 'setDefaultCategoryStatus']);
