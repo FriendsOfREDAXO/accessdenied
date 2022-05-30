@@ -1,4 +1,4 @@
-package: access_denied
+package: accessdenied
 version: '2.0.0-dev'
 author: Friends Of REDAXO
 supportpage: github.com/FriendsOfREDAXO/accessdenied
@@ -10,7 +10,7 @@ requires:
     php:
         version: '>=7.4, <9'
 page:
-    title: 'translate:access_denied_title'
+    title: 'translate:accessdenied_title'
     icon: rex-icon fa-unlock-alt
     perm: admin
 default_config:
