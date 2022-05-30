@@ -16,7 +16,7 @@ if (rex::isBackend()) {
 if (rex::isFrontend()) {
     rex_extension::register('PACKAGES_INCLUDED', function () {
         $package = rex_addon::get('accessdenied');
-        // check inherit catefory status
+        // check inherit category status
         if ($package->getConfig('inherit') == true &&  rex_category::getCurrent() != null) {
             $cat = rex_category::getCurrent();
             if ($cat->getClosest(fn (rex_category $cat) => 2 == $cat->getValue('status')) && rex_request('preview', 'string', '')  != 'id-' . rex_article::getCurrent()->getId()  && !rex_backend_login::hasSession()) {
@@ -40,7 +40,7 @@ if (rex::isBackend()) {
     $catclocked = false;
     $cat = rex_category::getCurrent();
     $package = rex_addon::get('accessdenied');
-    // check inherit catefory status
+    // check inherit category status
     if ($package->getConfig('inherit') == true && $cat && $cat->getClosest(fn (rex_category $cat) => 2 == $cat->getValue('status'))) {
         $catclocked = true;
     }
