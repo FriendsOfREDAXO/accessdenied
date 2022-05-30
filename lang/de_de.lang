@@ -20,3 +20,7 @@ accessdenied_settings_default_status_blocked = gesperrt (empfohlen)
 accessdenied_settings_inherit_label = Kategoriestatus vererben
 accessdenied_settings_inherit_off = nein
 accessdenied_settings_inherit_on = ja
+
+accessdenied_linkparameter = Linkparameter
+accessdenied_linkparameter_empty = Der Linkparameter darf nicht leer sein
+accessdenied_linkparameter_wrong = Bitte geben Sie nur Zeichen von a-z ein.
