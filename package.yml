@@ -1,20 +1,21 @@
 package: accessdenied
-version: '1.1.1'
+version: '2.0.0-dev'
 author: Friends Of REDAXO
 supportpage: github.com/FriendsOfREDAXO/accessdenied
-
 requires:
     packages:
-        structure: '^2.1.0'
-    redaxo: '^5.1.0'
+        structure/content: '^2.1.0'
+        yrewrite: '^2.6.0'
+    redaxo: '^5.10.0'
     php:
-        version: '>=7.0,<9'
-
+        version: '>=7.4, <9'
 page:
     title: 'translate:accessdenied_title'
     icon: rex-icon fa-unlock-alt
     perm: admin
-
-
 default_config:
     default_status: 0
+    inherit: false
+conflicts:
+    packages:
+        locked: '>0.0.1'

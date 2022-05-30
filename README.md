@@ -1,4 +1,4 @@
-# Access denied / Zugriff verweigert
+# Access denied / Zugriff verweigert 
 
 REDAXO-Artikel und Kategorien mit dem Status "offline" sind standardmäßig dennoch über das Frontend erreichbar. Mit diesem AddOn werden Kategorien und Artikel um einen weiteren Status "gesperrt" erweitert.
 
@@ -6,21 +6,15 @@ REDAXO-Artikel und Kategorien mit dem Status "offline" sind standardmäßig denn
 
 ## Funktionen
 
-* Es wird ein zusätzliches Statusfeld "gesperrt" registriert.
-* Gesperrte Artikel leiten im Frontend automatisch auf den Fehler-Artikel weiter, mit dem Status-Code `307` (Temporäre Weiterleitung).
-* Artikel bleiben für eingeloggte REDAXO-Benutzer sichtbar. 
-* Der Status `gesperrt` kann für neue Artikel und Kategorien als Standard-Status eingestellt werden.
-
-## Installation
-
-* Voraussetzungen: REDAXO `>= 5.1.0`, PHP `>= 7`, `structure`-Addon
-* Über den REDAXO-Installer herunterladen und installieren. Es sind keine weiteren Schritte nötig.
-
-Anschließend lässt sich in der Struktur jeder Artikel und jede Kategorie der zusätzliche Status `gesperrt` festlegen.
+- Dieses Utility-AddOn ermöglicht das Sperren von Artikeln und Sharing per Preview-Link. 
+- In den Artikeln wird bei gesperrtem Status ein Panel angezeigt, in dem ein Sharing-Link generiert wird. 
+- Die Sperrung der Kategorien vererben sich optional auf die Unterkategorien und Artikel
+- Gesperrte Seiten leiten automatisch auf den not found Artikel um, wenn sie nicht mit Preview-Parameter oder aus dem Backend heraus aufgerufen werden. 
 
 ## Einstellungen
 
-Auf der AddOn-Einstellungsseite "Artikelsperre" lässt sich auswählen, ob neue Artikel und Kategorien standardmäßig offline, online oder gesperrt angelegt werden.
+- Auf der AddOn-Einstellungsseite "Artikelsperre" lässt sich auswählen, ob neue Artikel und Kategorien standardmäßig offline, online oder gesperrt angelegt werden.
+- Die Vererbung kann aktiviert / deaktiviert werden
 
 ## Hinweise zur Nutzung
 
@@ -35,3 +29,4 @@ In Multi-Domain-Umgebungen muss der REDAXO-Benutzer unter der jeweiligen Domain 
 * REDAXO 4 Version: Koala (Sven Eichler)
 * Portierung zu REDAXO 5: @Hirbod
 * Default-Status: Alexander Walther @alxndr-w
+* Vererbung und Sharing: @skerbis

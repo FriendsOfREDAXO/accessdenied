@@ -1,0 +1,22 @@
+accessdenied_title = Access denied
+accessdenied_locked = locked
+accessdenied_info = This article is locked
+accessdenied_share = You may share the link below:
+# Benennung für die Addonrechte, sichtbar innerhalb der REDAXO-Administration unter Benutzer > Rollen > Allgemein
+
+perm_general_accessdenied[] = Right for Accessdenied-AddOn
+
+# Einstellungsseite
+
+accessdenied_settings = Settings
+
+accessdenied_settings_default_status_label =  Default status for new articles / categories
+accessdenied_settings_default_status_notice = When a new article is created in the structure, this status is set. In live mode, the article should remain locked for the time being; during development, everything can be published directly by default.
+
+accessdenied_settings_default_status_online = online
+accessdenied_settings_default_status_offline = offline (REDAXO standard)
+accessdenied_settings_default_status_blocked = locked (recommended)
+
+accessdenied_settings_inherit_label = Inherit category status
+accessdenied_settings_inherit_off = no
+accessdenied_settings_inherit_on = yes
