@@ -1,5 +1,0 @@
-accessdenied_blocked = blocked
-
-# Benennung für die Addonrechte, sichtbar innerhalb der REDAXO-Administration unter Benutzer > Rollen > Allgemein
-
-perm_general_accessdenied[] = Rights for accessdenied Addon
