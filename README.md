@@ -7,6 +7,7 @@ REDAXO-Artikel und Kategorien mit dem Status "offline" sind standardmäßig denn
 ## Funktionen
 
 - Dieses Utility-AddOn ermöglicht das Sperren von Artikeln und Sharing per Preview-Link. 
+- Der Linkparameter für den Sharing-Link kann frei gewählt werden. (Standard: preview)
 - In den Artikeln wird bei gesperrtem Status ein Panel angezeigt, in dem ein Sharing-Link generiert wird. 
 - Die Sperrung der Kategorien vererben sich optional auf die Unterkategorien und Artikel
 - Gesperrte Seiten leiten automatisch auf den not found Artikel um, wenn sie nicht mit Preview-Parameter oder aus dem Backend heraus aufgerufen werden. 
