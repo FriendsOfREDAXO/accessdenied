@@ -1,5 +1,5 @@
 <?php
-echo rex_view::title($this->i18n('accessdenied_title'));
+
 $form = rex_config_form::factory('accessdenied');
 $field = $form->addSelectField('default_status');
 $field->setLabel($this->i18n('accessdenied_settings_default_status_label'));
