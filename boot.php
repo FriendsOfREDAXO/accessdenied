@@ -14,9 +14,9 @@ if (rex::isBackend()) {
 
 // redirect to not foundArticle if not logged in or link parameter not set. 
 if (rex::isFrontend()) {
-    $linkparameter = $package->getConfig('linkparameter');
     rex_extension::register('PACKAGES_INCLUDED', function () {
         $package = rex_addon::get('accessdenied');
+        $linkparameter = $package->getConfig('linkparameter');
         // check inherit category status
         if ($package->getConfig('inherit') == true &&  rex_category::getCurrent() != null) {
             $cat = rex_category::getCurrent();
