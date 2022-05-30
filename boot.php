@@ -50,7 +50,8 @@ if (rex::isBackend()) {
         rex_extension::register('STRUCTURE_CONTENT_SIDEBAR', function (rex_extension_point $ep) {
             $params = $ep->getParams();
             $subject = $ep->getSubject();
-
+            $package = rex_addon::get('accessdenied');
+            $linkparameter = $package->getConfig('linkparameter');
             $panel = '<div class="alert alert-info">' . rex_i18n::msg('accessdenied_share') . '<br><strong id="sharelink">' . rex_yrewrite::getFullUrlByArticleId($params["article_id"]) . '?'.$linkparameter.'=id-' . rex_article::getCurrent()->getId() . '</strong>
             <p><clipboard-copy for="sharelink" class="btn btn-small btn-copy btn-primary">'. rex_i18n::msg('copy_to_clipboard') .'</clipboard-copy></p> </div>';
 
