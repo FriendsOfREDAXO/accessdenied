@@ -13,7 +13,9 @@ REDAXO-Artikel und Kategorien mit dem Status "offline" sind standardmäßig denn
 
 ## Einstellungen
 
-- Auf der AddOn-Einstellungsseite "Artikelsperre" lässt sich auswählen, ob neue Artikel und Kategorien standardmäßig offline, online oder gesperrt angelegt werden.
+Die Einstellungen befinden sich in den Systemeinstellungen (Menüpunkt: System)
+
+- Im Tab "Access denied" lässt sich auswählen, ob neue Artikel und Kategorien standardmäßig offline, online oder gesperrt angelegt werden.
 - Die Vererbung kann aktiviert / deaktiviert werden
 
 ## Hinweise zur Nutzung
