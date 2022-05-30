@@ -12,19 +12,20 @@ if (rex::isBackend()) {
     }
 }
 
-// redirect to not foundArticle if not logged in or preview parameter not set. 
+// redirect to not foundArticle if not logged in or link parameter not set. 
 if (rex::isFrontend()) {
+    $linkparameter = $package->getConfig('linkparameter');
     rex_extension::register('PACKAGES_INCLUDED', function () {
         $package = rex_addon::get('accessdenied');
         // check inherit category status
         if ($package->getConfig('inherit') == true &&  rex_category::getCurrent() != null) {
             $cat = rex_category::getCurrent();
-            if ($cat->getClosest(fn (rex_category $cat) => 2 == $cat->getValue('status')) && rex_request('preview', 'string', '')  != 'id-' . rex_article::getCurrent()->getId()  && !rex_backend_login::hasSession()) {
+            if ($cat->getClosest(fn (rex_category $cat) => 2 == $cat->getValue('status')) && rex_request($linkparameter, 'string', '')  != 'id-' . rex_article::getCurrent()->getId()  && !rex_backend_login::hasSession()) {
                 rex_response::setStatus(rex_response::HTTP_MOVED_TEMPORARILY);
                 rex_redirect(rex_article::getNotfoundArticleId(), rex_clang::getCurrentId());
             }
         }
-        if (rex_article::getCurrent() instanceof rex_article && rex_request('preview', 'string', '') != 'id-' . rex_article::getCurrent()->getId() && rex_article::getCurrent()->getValue('status') == 2 && !rex_backend_login::hasSession()) {
+        if (rex_article::getCurrent() instanceof rex_article && rex_request($linkparameter, 'string', '') != 'id-' . rex_article::getCurrent()->getId() && rex_article::getCurrent()->getValue('status') == 2 && !rex_backend_login::hasSession()) {
             rex_response::setStatus(rex_response::HTTP_MOVED_TEMPORARILY);
             rex_redirect(rex_article::getNotfoundArticleId(), rex_clang::getCurrentId());
         }
@@ -50,7 +51,7 @@ if (rex::isBackend()) {
             $params = $ep->getParams();
             $subject = $ep->getSubject();
 
-            $panel = '<div class="alert alert-info">' . rex_i18n::msg('accessdenied_share') . '<br><strong id="sharelink">' . rex_yrewrite::getFullUrlByArticleId($params["article_id"]) . '?preview=id-' . rex_article::getCurrent()->getId() . '</strong>
+            $panel = '<div class="alert alert-info">' . rex_i18n::msg('accessdenied_share') . '<br><strong id="sharelink">' . rex_yrewrite::getFullUrlByArticleId($params["article_id"]) . '?'.$linkparameter.'=id-' . rex_article::getCurrent()->getId() . '</strong>
             <p><clipboard-copy for="sharelink" class="btn btn-small btn-copy btn-primary">'. rex_i18n::msg('copy_to_clipboard') .'</clipboard-copy></p> </div>';
 
             $fragment = new rex_fragment();
