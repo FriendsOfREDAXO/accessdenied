@@ -51,7 +51,7 @@ if (rex::isBackend()) {
             $subject = $ep->getSubject();
 
             $panel = '<div class="alert alert-info">' . rex_i18n::msg('accessdenied_share') . '<br><strong id="sharelink">' . rex_yrewrite::getFullUrlByArticleId($params["article_id"]) . '?preview=id-' . rex_article::getCurrent()->getId() . '</strong>
-            <p><clipboard-copy for="sharelink" class="btn btn-small btn-copy btn-primary">'. rex_i18n::msg('copy_to_clipboard') .'</clipboard-copy></p>
+            <p><clipboard-copy for="sharelink" class="btn btn-small btn-copy btn-primary">'. rex_i18n::msg('copy_to_clipboard') .'</clipboard-copy></p> </div>';
 
             $fragment = new rex_fragment();
             $fragment->setVar('title', '<i class="fa fa-exclamation-triangle" style="color: red"></i> ' . rex_i18n::msg('accessdenied_info'), false);
