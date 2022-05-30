@@ -33,7 +33,6 @@ if (rex::isFrontend()) {
 }
 
 if (rex::isBackend()) {
-    $linkparameter = $package->getConfig('linkparameter');
     // set a default status on new articles
     rex_extension::register('ART_ADDED', ['accessdenied', 'setDefaultArticleStatus']);
     rex_extension::register('CAT_ADDED', ['accessdenied', 'setDefaultCategoryStatus']);
@@ -41,6 +40,7 @@ if (rex::isBackend()) {
     $catclocked = false;
     $cat = rex_category::getCurrent();
     $package = rex_addon::get('accessdenied');
+    $linkparameter = $package->getConfig('linkparameter');
     // check inherit category status
     if ($package->getConfig('inherit') == true && $cat && $cat->getClosest(fn (rex_category $cat) => 2 == $cat->getValue('status'))) {
         $catclocked = true;
