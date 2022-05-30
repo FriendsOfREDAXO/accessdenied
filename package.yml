@@ -26,3 +26,4 @@ pages:
 default_config:
     default_status: 0
     inherit: false
+    linkparameter: 'preview'
