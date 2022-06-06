@@ -16,7 +16,7 @@ if (rex::isBackend()) {
 if (rex::isFrontend()) {
     rex_extension::register('PACKAGES_INCLUDED', function () {
         $package = rex_addon::get('accessdenied');
-        $linkparameter = $package->getConfig('linkparameter');
+        $linkparameter = $package->getConfig('linkparameter') ?? 'preview';
         // check inherit category status
         if ($package->getConfig('inherit') == true &&  rex_category::getCurrent() != null) {
             $cat = rex_category::getCurrent();
