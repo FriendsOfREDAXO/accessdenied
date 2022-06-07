@@ -24,3 +24,5 @@ accessdenied_settings_inherit_on = ja
 accessdenied_linkparameter = Linkparameter
 accessdenied_linkparameter_empty = Der Linkparameter darf nicht leer sein
 accessdenied_linkparameter_wrong = Bitte geben Sie nur Zeichen von a-z ein.
+
+accessdenied_uninstall_message = Hinweis: Alle geperrten Artikel wurden auf offline gestellt
