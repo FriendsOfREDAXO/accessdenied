@@ -23,6 +23,9 @@ Die Einstellungen befinden sich in den Systemeinstellungen (Menüpunkt: System)
 
 In Multi-Domain-Umgebungen muss der REDAXO-Benutzer unter der jeweiligen Domain eingeloggt sein, um den Artikel im gesperrten Zustand im Frontend ansehen zu können, siehe:  https://github.com/FriendsOfREDAXO/accessdenied/issues/22
 
+## Deinstallation
+Bei der Deinstallation werden alle gesperrten Artikel auf offline gesetzt. 
+
 ## Lizenz
 
 [MIT Lizenz](LICENSE.md)
