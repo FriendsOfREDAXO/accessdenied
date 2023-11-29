@@ -22,7 +22,7 @@ if (rex::isFrontend()) {
             $cat = rex_category::getCurrent();
             if ($cat->getClosest(fn (rex_category $cat) => 2 == $cat->getValue('status')) && rex_request($linkparameter, 'string', '')  != 'id-' . rex_article::getCurrent()->getId()  && !rex_backend_login::hasSession()) {
                 if (rex_addon::get('search_it')->isAvailable()) {
-                    rex_extension::register('EARCH_IT_INDEXARTICLE', function (rex_extension_point $ep) {
+                    rex_extension::register('SEARCH_IT_INDEXARTICLE', function (rex_extension_point $ep) {
                     return false; 
                     });
                 }
