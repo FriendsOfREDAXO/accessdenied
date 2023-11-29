@@ -1,4 +1,20 @@
 <?php
+
+// INDEX PREVENT in SEARCH_IT
+if (rex_addon::get('yform')->isAvailable()) {
+    rex_extension::register('SEARCH_IT_INDEXARTICLE', function (rex_extension_point $ep) {
+        $article = $ep->getParam('article');
+        $cat = $article->getCategory();
+        if ($article->getValue('status') == 2) {
+            return false; 
+        }
+        if ($cat->getClosest(fn (rex_category $cat) => 2 == $cat->getValue('status')) ) {
+            return false; 
+        }
+    });
+}
+
+
 // Add status for locked articles and categories
 if (rex::isBackend()) {
     rex_extension::register(['ART_STATUS_TYPES', 'CAT_STATUS_TYPES'], function (rex_extension_point $ep) {
