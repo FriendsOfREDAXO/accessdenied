@@ -3,7 +3,7 @@
 // INDEX PREVENT in SEARCH_IT
 
 if (rex_addon::get('search_it')->isAvailable()) {
-    rex_extension::register('SEARCH_IT_INDEXARTICLE', function (rex_extension_point $ep) {
+    rex_extension::register('SEARCH_IT_INDEX_ARTICLE', function (rex_extension_point $ep) {
         $package = rex_addon::get('accessdenied');
         $article = $ep->getParam('article');
         $cat = $article->getCategory();
