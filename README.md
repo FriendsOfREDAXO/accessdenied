@@ -32,7 +32,7 @@ Bei der Deinstallation werden alle gesperrten Artikel auf offline gesetzt.
 
 [MIT Lizenz](LICENSE.md)
 
-## Autoren
+## Credits
 
 * REDAXO 4 Version: Koala (Sven Eichler)
 * Portierung zu REDAXO 5: @Hirbod
