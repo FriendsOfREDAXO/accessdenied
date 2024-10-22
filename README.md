@@ -1,7 +1,3 @@
-Here is a draft for a new README for the Access Denied addon:
-
----
-
 # Access Denied Addon for REDAXO
 
 ![Screenshot](https://raw.githubusercontent.com/FriendsOfREDAXO/accessdenied/assets/screenshot.png)
@@ -52,7 +48,3 @@ This project is licensed under the [MIT License](LICENSE.md).
 - **REDAXO 5 Port**: @Hirbod
 - **Default Status Implementation**: Alexander Walther (@alxndr-w)
 - **Inheritance and Sharing Features**: @skerbis
-
----
-
-Feel free to modify any part of this draft to better fit your requirements.
