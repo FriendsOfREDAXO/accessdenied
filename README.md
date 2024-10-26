@@ -38,7 +38,7 @@ This project is licensed under the [MIT License](LICENSE.md).
 - Website: [REDAXO](http://www.redaxo.org)
 - GitHub: [FriendsOfREDAXO](https://github.com/FriendsOfREDAXO)
 
-**Leads**
+## Leads
 
 - [Thomas Skerbis](https://github.com/skerbis)
 - Alexander Walther (@alxndr-w)
