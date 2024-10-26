@@ -31,7 +31,7 @@ Upon uninstallation, all restricted articles are set to offline.
 
 This project is licensed under the [MIT License](LICENSE.md).
 
-## Authors
+## Author
 
 **Friends Of REDAXO**
 
