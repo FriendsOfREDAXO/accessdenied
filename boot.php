@@ -25,15 +25,15 @@ if (rex::isBackend()) {
 
     // Register sidebar extension via extension point to avoid early category/article access
     rex_extension::register('PACKAGES_INCLUDED', static function() {
-        $catclocked = false;
+        $catlocked = false;
         $cat = rex_category::getCurrent();
         $package = rex_addon::get('accessdenied');
         // Check inherit category status
         if ($package->getConfig('inherit') == true && $cat && $cat->getClosest(fn (rex_category $cat) => 2 == $cat->getValue('status'))) {
-            $catclocked = true;
+            $catlocked = true;
         }
         $art = rex_article::getCurrent();
-        if ($art && $art->getValue('status') == 2 || true == $catclocked) {
+        if ($art && $art->getValue('status') == 2 || true == $catlocked) {
             rex_extension::register('STRUCTURE_CONTENT_SIDEBAR', [Accessdenied::class, 'addContentSidebar']);
         }
     }, rex_extension::LATE);
