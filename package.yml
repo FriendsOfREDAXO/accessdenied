@@ -1,5 +1,5 @@
 package: accessdenied
-version: '3.0.1'
+version: '3.0.2'
 author: Friends Of REDAXO
 supportpage: github.com/FriendsOfREDAXO/accessdenied
 requires:
