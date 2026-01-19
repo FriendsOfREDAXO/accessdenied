@@ -7,7 +7,7 @@ Accessdenied::initializeSearchItPrevention();
 
 // Add status for locked articles and categories
 if (rex::isBackend()) {
-    rex_extension::register(['ART_STATUS_TYPES', 'CAT_STATUS_TYPES'], [Accessdenied::class, 'addLockedStatus']);
+    rex_extension::register(['ART_STATUS_TYPES', 'CAT_STATUS_TYPES'], [Accessdenied::class, 'addLockedStatus'], rex_extension::EARLY);
     if (rex_addon::get('quick_navigation')->isAvailable()) {
         rex_view::addCssFile($this->getAssetsUrl('accessdenied_qn.css'));
     }
@@ -23,15 +23,18 @@ if (rex::isBackend()) {
     rex_extension::register('ART_ADDED', [Accessdenied::class, 'setDefaultArticleStatus']);
     rex_extension::register('CAT_ADDED', [Accessdenied::class, 'setDefaultCategoryStatus']);
 
-    $catclocked = false;
-    $cat = rex_category::getCurrent();
-    $package = rex_addon::get('accessdenied');
-    // Check inherit category status
-    if ($package->getConfig('inherit') == true && $cat && $cat->getClosest(fn (rex_category $cat) => 2 == $cat->getValue('status'))) {
-        $catclocked = true;
-    }
-    $art = rex_article::getCurrent();
-    if ($art && $art->getValue('status') == 2 || true == $catclocked) {
-        rex_extension::register('STRUCTURE_CONTENT_SIDEBAR', [Accessdenied::class, 'addContentSidebar']);
-    }
+    // Register sidebar extension via extension point to avoid early category/article access
+    rex_extension::register('PACKAGES_INCLUDED', static function() {
+        $catclocked = false;
+        $cat = rex_category::getCurrent();
+        $package = rex_addon::get('accessdenied');
+        // Check inherit category status
+        if ($package->getConfig('inherit') == true && $cat && $cat->getClosest(fn (rex_category $cat) => 2 == $cat->getValue('status'))) {
+            $catclocked = true;
+        }
+        $art = rex_article::getCurrent();
+        if ($art && $art->getValue('status') == 2 || true == $catclocked) {
+            rex_extension::register('STRUCTURE_CONTENT_SIDEBAR', [Accessdenied::class, 'addContentSidebar']);
+        }
+    }, rex_extension::LATE);
 }
