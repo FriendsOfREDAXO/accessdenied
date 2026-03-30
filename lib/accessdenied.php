@@ -43,6 +43,19 @@ class Accessdenied
     public static function addLockedStatus(rex_extension_point $ep): array
     {
         $subject = $ep->getSubject();
+
+        // Override the offline label (index 0) from config if configured for current locale.
+        // Format in config 'offline_labels': one 'locale|Label' per line, e.g. "de_de|Versteckt".
+        $locale = rex_i18n::getLocale();
+        $raw = (string) rex_addon::get('accessdenied')->getConfig('offline_labels', '');
+        foreach (array_filter(array_map('trim', explode("\n", $raw))) as $line) {
+            [$lang, $label] = array_pad(explode('|', $line, 2), 2, '');
+            if (trim($lang) === $locale && trim($label) !== '' && isset($subject[0])) {
+                $subject[0][0] = trim($label);
+                break;
+            }
+        }
+
         $subject[] = [rex_i18n::msg('accessdenied_locked'), 'rex-offline', 'fa fa-exclamation-triangle'];
         return $subject;
     }

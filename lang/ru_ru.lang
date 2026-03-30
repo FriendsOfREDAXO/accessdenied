@@ -1,0 +1,41 @@
+accessdenied_title = Доступ запрещён
+accessdenied_locked = заблокировано
+accessdenied_info = Эта статья заблокирована
+accessdenied_share = Вы можете поделиться следующей ссылкой:
+# Benennung für die Addonrechte, sichtbar innerhalb der REDAXO-Administration unter Benutzer > Rollen > Allgemein
+
+perm_general_accessdenied[] = Право для AddOn Accessdenied
+
+# Einstellungsseite
+
+accessdenied_settings = Настройки
+
+accessdenied_settings_default_status_label = Статус по умолчанию для новых статей / категорий
+accessdenied_settings_default_status_notice = При создании новой статьи в структуре устанавливается этот статус. В рабочем режиме статья должна оставаться заблокированной; при разработке всё может публиковаться напрямую по умолчанию.
+
+accessdenied_settings_default_status_online = онлайн
+accessdenied_settings_default_status_offline = офлайн (стандарт REDAXO)
+accessdenied_settings_default_status_blocked = заблокировано (рекомендуется)
+
+accessdenied_settings_inherit_label = Наследовать статус категории
+accessdenied_settings_inherit_off = нет
+accessdenied_settings_inherit_on = да
+
+accessdenied_linkparameter = Параметр ссылки
+accessdenied_linkparameter_empty = Параметр ссылки не должен быть пустым.
+accessdenied_linkparameter_wrong = Пожалуйста, используйте только буквенно-цифровые символы, подчёркивания, дефисы и точки.
+copy_to_clipboard = Скопировать в буфер обмена
+
+accessdenied_ip_whitelist_label = Список разрешённых IP
+accessdenied_ip_whitelist_notice = Один IP-адрес в строке. IP из этого списка всегда могут открывать заблокированные статьи и категории, например для офисной сети или тестовых сред.
+accessdenied_your_ip = Ваш текущий IP-адрес:
+accessdenied_add_my_ip = Добавить мой IP
+accessdenied_ip_whitelist_current_ip_section = Текущий IP
+
+accessdenied_inherited_from = Заблокировано категорией:
+accessdenied_goto_source_category = Перейти к исходной категории
+
+accessdenied_offline_labels_label = Переименовать статус офлайн (по языку)
+accessdenied_offline_labels_notice = Переопределяет метку «офлайн» в бэкенде REDAXO для каждого языка. Одна запись в строке в формате: код|метка – напр. de_de|Скрыто или en_gb|Hidden. Код должен соответствовать locale бэкенда REDAXO (строчными буквами, напр. de_de, en_gb).
+accessdenied_offline_labels_presets_title = Предложения для стандартных языков
+accessdenied_offline_labels_presets_notice = Нажмите на язык, чтобы добавить предложенную метку «скрыто» для этой локали – при необходимости отредактируйте текст.

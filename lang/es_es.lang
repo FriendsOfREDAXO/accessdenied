@@ -1,0 +1,41 @@
+accessdenied_title = Acceso denegado
+accessdenied_locked = bloqueado
+accessdenied_info = Este artículo está bloqueado
+accessdenied_share = Puede compartir el siguiente enlace:
+# Benennung für die Addonrechte, sichtbar innerhalb der REDAXO-Administration unter Benutzer > Rollen > Allgemein
+
+perm_general_accessdenied[] = Derecho para el AddOn Accessdenied
+
+# Einstellungsseite
+
+accessdenied_settings = Configuración
+
+accessdenied_settings_default_status_label = Estado predeterminado para nuevos artículos / categorías
+accessdenied_settings_default_status_notice = Cuando se crea un nuevo artículo en la estructura, se establece este estado. En modo de producción, el artículo debe permanecer bloqueado; durante el desarrollo, todo puede publicarse directamente por defecto.
+
+accessdenied_settings_default_status_online = en línea
+accessdenied_settings_default_status_offline = sin conexión (estándar REDAXO)
+accessdenied_settings_default_status_blocked = bloqueado (recomendado)
+
+accessdenied_settings_inherit_label = Heredar estado de categoría
+accessdenied_settings_inherit_off = no
+accessdenied_settings_inherit_on = sí
+
+accessdenied_linkparameter = Parámetro de enlace
+accessdenied_linkparameter_empty = El parámetro de enlace no debe estar vacío.
+accessdenied_linkparameter_wrong = Por favor, use solo caracteres alfanuméricos, guiones bajos, guiones y puntos.
+copy_to_clipboard = Copiar al portapapeles
+
+accessdenied_ip_whitelist_label = Lista de IPs permitidas
+accessdenied_ip_whitelist_notice = Una dirección IP por línea. Las IPs en esta lista siempre pueden acceder a artículos y categorías bloqueados, p. ej. para la red de la oficina o entornos de prueba.
+accessdenied_your_ip = Tu dirección IP actual:
+accessdenied_add_my_ip = Agregar mi IP
+accessdenied_ip_whitelist_current_ip_section = IP actual
+
+accessdenied_inherited_from = Bloqueado por categoría:
+accessdenied_goto_source_category = Ir a la categoría de origen
+
+accessdenied_offline_labels_label = Renombrar el estado sin conexión (por idioma)
+accessdenied_offline_labels_notice = Anula la etiqueta «sin conexión» en el backend de REDAXO por idioma. Una entrada por línea en el formato: código|etiqueta – p. ej. de_de|Oculto o en_gb|Hidden. El código debe coincidir con el locale del backend de REDAXO (en minúsculas, p. ej. de_de, en_gb).
+accessdenied_offline_labels_presets_title = Sugerencias para idiomas estándar
+accessdenied_offline_labels_presets_notice = Haga clic en un idioma para insertar una etiqueta sugerida «oculto» para ese idioma – ajuste el texto según sea necesario.

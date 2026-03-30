@@ -1,0 +1,41 @@
+accessdenied_title = Toegang geweigerd
+accessdenied_locked = geblokkeerd
+accessdenied_info = Dit artikel is geblokkeerd
+accessdenied_share = U kunt de volgende link delen:
+# Benennung für die Addonrechte, sichtbar innerhalb der REDAXO-Administration unter Benutzer > Rollen > Allgemein
+
+perm_general_accessdenied[] = Recht voor de Accessdenied-AddOn
+
+# Einstellungsseite
+
+accessdenied_settings = Instellingen
+
+accessdenied_settings_default_status_label = Standaardstatus voor nieuwe artikelen / categorieën
+accessdenied_settings_default_status_notice = Wanneer een nieuw artikel in de structuur wordt aangemaakt, wordt deze status ingesteld. In productie moet het artikel voorlopig geblokkeerd blijven; tijdens de ontwikkeling kan standaard alles direct gepubliceerd worden.
+
+accessdenied_settings_default_status_online = online
+accessdenied_settings_default_status_offline = offline (REDAXO-standaard)
+accessdenied_settings_default_status_blocked = geblokkeerd (aanbevolen)
+
+accessdenied_settings_inherit_label = Categoriestatus overerven
+accessdenied_settings_inherit_off = nee
+accessdenied_settings_inherit_on = ja
+
+accessdenied_linkparameter = Linkparameter
+accessdenied_linkparameter_empty = De linkparameter mag niet leeg zijn.
+accessdenied_linkparameter_wrong = Gebruik alleen alfanumerieke tekens, underscores, koppeltekens en punten.
+copy_to_clipboard = Kopiëren naar klembord
+
+accessdenied_ip_whitelist_label = IP-allowlist
+accessdenied_ip_whitelist_notice = Één IP-adres per regel. IP's op deze lijst hebben altijd toegang tot geblokkeerde artikelen en categorieën, bijv. voor het kantoornetwerk of stagingomgevingen.
+accessdenied_your_ip = Uw huidige IP-adres:
+accessdenied_add_my_ip = Mijn IP toevoegen
+accessdenied_ip_whitelist_current_ip_section = Huidig IP
+
+accessdenied_inherited_from = Geblokkeerd door categorie:
+accessdenied_goto_source_category = Naar broncategorie
+
+accessdenied_offline_labels_label = Offline-status hernoemen (per taal)
+accessdenied_offline_labels_notice = Overschrijft het label «offline» in de REDAXO-backend per taal. Één vermelding per regel in het formaat: taalcode|label – bijv. de_de|Verborgen of en_gb|Hidden. De taalcode moet overeenkomen met de backend-locale in REDAXO (kleine letters, bijv. de_de, en_gb).
+accessdenied_offline_labels_presets_title = Suggesties voor standaardtalen
+accessdenied_offline_labels_presets_notice = Klik op een taal om een voorgesteld «verborgen»-label voor die taal in te voegen – pas de tekst naar wens aan.

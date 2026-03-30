@@ -9,7 +9,8 @@
 ### Neu
 - **IP-Positivliste**: IP-Adressen unter Einstellungen → IP-Positivliste können gesperrte Artikel und Kategorien immer aufrufen (z.B. für Büronetz oder Staging-Umgebungen)
 - Die aktuelle IP des Nutzers wird auf der Einstellungsseite angezeigt und kann per Klick zur Liste hinzugefügt werden
-- Bei Artikeln, die per Kategorie-Vererbung gesperrt sind, erscheint im Sidebar-Panel ein Link zur spsrrenden Kategorie — so kann der Redakteur direkt navigieren und entsperren
+- **Offline-Status umbenennen**: Das Label „offline" kann unter Einstellungen pro Backend-Sprache frei überschrieben werden — Format: `sprachcode|Bezeichnung`, z.B. `en_gb|Hidden` oder `de_de|Versteckt` (ein Eintrag pro Zeile)
+- Bei Artikeln, die per Kategorie-Vererbung gesperrt sind, erscheint im Sidebar-Panel ein Link zur sperrenden Kategorie — so kann der Redakteur direkt navigieren und entsperren
 - Das Gesperrt-Panel erscheint jetzt oben in der Sidebar, nicht mehr am Ende
 
 ### Fehlerbehebungen

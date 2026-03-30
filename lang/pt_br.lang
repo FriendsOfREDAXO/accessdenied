@@ -1,0 +1,41 @@
+accessdenied_title = Acesso negado
+accessdenied_locked = bloqueado
+accessdenied_info = Este artigo está bloqueado
+accessdenied_share = Você pode compartilhar o seguinte link:
+# Benennung für die Addonrechte, sichtbar innerhalb der REDAXO-Administration unter Benutzer > Rollen > Allgemein
+
+perm_general_accessdenied[] = Direito para o AddOn Accessdenied
+
+# Einstellungsseite
+
+accessdenied_settings = Configurações
+
+accessdenied_settings_default_status_label = Status padrão para novos artigos / categorias
+accessdenied_settings_default_status_notice = Quando um novo artigo é criado na estrutura, este status é definido. Em produção o artigo deve permanecer bloqueado; durante o desenvolvimento tudo pode ser publicado diretamente por padrão.
+
+accessdenied_settings_default_status_online = online
+accessdenied_settings_default_status_offline = offline (padrão REDAXO)
+accessdenied_settings_default_status_blocked = bloqueado (recomendado)
+
+accessdenied_settings_inherit_label = Herdar status da categoria
+accessdenied_settings_inherit_off = não
+accessdenied_settings_inherit_on = sim
+
+accessdenied_linkparameter = Parâmetro de link
+accessdenied_linkparameter_empty = O parâmetro de link não pode estar vazio.
+accessdenied_linkparameter_wrong = Por favor, use apenas caracteres alfanuméricos, sublinhados, hifens e pontos.
+copy_to_clipboard = Copiar para a área de transferência
+
+accessdenied_ip_whitelist_label = Lista de IPs permitidos
+accessdenied_ip_whitelist_notice = Um endereço IP por linha. IPs nesta lista podem sempre acessar artigos e categorias bloqueados, p. ex. para a rede do escritório ou ambientes de homologação.
+accessdenied_your_ip = Seu endereço IP atual:
+accessdenied_add_my_ip = Adicionar meu IP
+accessdenied_ip_whitelist_current_ip_section = IP atual
+
+accessdenied_inherited_from = Bloqueado pela categoria:
+accessdenied_goto_source_category = Ir para a categoria de origem
+
+accessdenied_offline_labels_label = Renomear o status offline (por idioma)
+accessdenied_offline_labels_notice = Substitui o rótulo «offline» no backend do REDAXO por idioma. Uma entrada por linha no formato: código|rótulo – p. ex. de_de|Oculto ou en_gb|Hidden. O código deve corresponder ao locale do backend do REDAXO (minúsculas, p. ex. de_de, en_gb).
+accessdenied_offline_labels_presets_title = Sugestões para idiomas padrão
+accessdenied_offline_labels_presets_notice = Clique em um idioma para inserir um rótulo sugerido «oculto» para esse idioma – ajuste o texto conforme necessário.
