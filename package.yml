@@ -1,14 +1,13 @@
 package: accessdenied
-version: '3.0.2'
+version: '4.0.0'
 author: Friends Of REDAXO
 supportpage: github.com/FriendsOfREDAXO/accessdenied
 requires:
     packages:
         structure/content: '^2.1.0'
-        yrewrite: '^2.6.0'
     redaxo: '^5.10.0'
     php:
-        version: '>=7.4, <9'
+        version: '>=8.4'
     
 conflicts:
     packages:
@@ -27,3 +26,4 @@ default_config:
     default_status: 0
     inherit: false
     linkparameter: 'preview'
+    ip_whitelist: ''

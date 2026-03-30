@@ -20,3 +20,17 @@ accessdenied_settings_default_status_blocked = locked (recommended)
 accessdenied_settings_inherit_label = Inherit category status
 accessdenied_settings_inherit_off = no
 accessdenied_settings_inherit_on = yes
+
+accessdenied_linkparameter = Link parameter
+accessdenied_linkparameter_empty = The link parameter must not be empty.
+accessdenied_linkparameter_wrong = Please use only alphanumeric characters, underscores, hyphens, and dots.
+copy_to_clipboard = Copy to clipboard
+
+accessdenied_ip_whitelist_label = IP allowlist
+accessdenied_ip_whitelist_notice = One IP address per line. IPs on this list can always access locked articles and categories, e.g. for the office network or staging environments.
+accessdenied_your_ip = Your current IP address:
+accessdenied_add_my_ip = Add my IP
+accessdenied_ip_whitelist_current_ip_section = Current IP
+
+accessdenied_inherited_from = Locked by category:
+accessdenied_goto_source_category = Go to source category
