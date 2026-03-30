@@ -2,7 +2,6 @@
 
 namespace FriendsOfRedaxo\Accessdenied;
 
-use rex;
 use rex_addon;
 use rex_extension_point;
 use rex_article;
@@ -150,10 +149,11 @@ class Accessdenied
         if (rex_addon::get('yrewrite')->isAvailable()) {
             $baseUrl = rex_yrewrite::getFullUrlByArticleId($articleId);
         } else {
-            $baseUrl = rtrim(\rex::getServer(), '/') . \rex_getUrl($articleId);
+            $baseUrl = rtrim(\rex::getServer(), '/') . \rex_getUrl($articleId, $clangId);
         }
 
-        $shareUrl = $baseUrl . '?' . rex_escape((string) $linkparameter) . '=id-' . $articleId;
+        $separator = (str_contains($baseUrl, '?')) ? '&' : '?';
+        $shareUrl = $baseUrl . $separator . rex_escape((string) $linkparameter) . '=id-' . $articleId;
         $inputId = 'sharelink-' . $articleId;
 
         $panel = '<div class="alert alert-info">'
@@ -176,7 +176,7 @@ class Accessdenied
                 . rex_i18n::msg('accessdenied_inherited_from')
                 . ' <strong>' . rex_escape($inheritedFromCat->getName() ?? '') . '</strong>'
                 . '</p>'
-                . '<a href="' . $catUrl . '" class="btn btn-sm btn-warning">'
+                . '<a href="' . rex_escape($catUrl) . '" class="btn btn-sm btn-warning">'
                 . '<i class="fa fa-arrow-right"></i> '
                 . rex_i18n::msg('accessdenied_goto_source_category')
                 . '</a>';

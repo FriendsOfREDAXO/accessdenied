@@ -29,3 +29,9 @@ body.rex-theme-dark .accessdenied-warning-icon {
         color: var(--rex-danger, #e74c3c);
     }
 }
+
+@media (prefers-reduced-motion: reduce) {
+    .accessdenied-warning-icon {
+        animation: none;
+    }
+}
