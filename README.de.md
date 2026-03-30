@@ -57,7 +57,6 @@ Bei der Deinstallation werden alle gesperrten Artikel auf **offline** gesetzt.
 **Leads**
 
 - [Thomas Skerbis](https://github.com/skerbis)
-- Alexander Walther (@alxndr-w)
 
 ## Credits
 
