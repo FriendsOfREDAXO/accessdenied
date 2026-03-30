@@ -7,10 +7,21 @@ Accessdenied::initializeSearchItPrevention();
 
 // Add status for locked articles and categories
 if (rex::isBackend()) {
+    rex_extension::register('PACKAGES_INCLUDED', static function () {
+        $locale = rex_i18n::getLocale();
+        $raw = (string) rex_addon::get('accessdenied')->getConfig('offline_labels', '');
+        foreach (array_filter(array_map('trim', explode("\n", $raw))) as $line) {
+            [$lang, $label] = array_pad(explode('|', $line, 2), 2, '');
+            if (trim($lang) === $locale && trim($label) !== '') {
+                rex_i18n::addMsg('status_offline', trim($label));
+                break;
+            }
+        }
+    }, rex_extension::EARLY);
+
     rex_extension::register(['ART_STATUS_TYPES', 'CAT_STATUS_TYPES'], [Accessdenied::class, 'addLockedStatus'], rex_extension::EARLY);
-    if (rex_addon::get('quick_navigation')->isAvailable()) {
-        rex_view::addCssFile($this->getAssetsUrl('accessdenied_qn.css'));
-    }
+    rex_view::addCssFile($this->getAssetsUrl('accessdenied_qn.css'));
+    rex_view::addJsFile($this->getAssetsUrl('accessdenied.js'));
 }
 
 // Handle frontend redirects
@@ -29,7 +40,7 @@ if (rex::isBackend()) {
         $cat = rex_category::getCurrent();
         $package = rex_addon::get('accessdenied');
         // Check inherit category status
-        if ($package->getConfig('inherit') == true && $cat && $cat->getClosest(fn (rex_category $cat) => 2 == $cat->getValue('status'))) {
+        if ($package->getConfig('inherit') == true && $cat && $cat->getClosest(static fn (rex_category $cat) => 2 == $cat->getValue('status'))) {
             $catlocked = true;
         }
         $art = rex_article::getCurrent();

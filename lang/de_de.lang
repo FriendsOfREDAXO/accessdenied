@@ -23,4 +23,19 @@ accessdenied_settings_inherit_on = ja
 
 accessdenied_linkparameter = Linkparameter
 accessdenied_linkparameter_empty = Der Linkparameter darf nicht leer sein
-accessdenied_linkparameter_wrong = Bitte geben Sie nur Zeichen von a-z ein.
+accessdenied_linkparameter_wrong = Bitte verwenden Sie nur alphanumerische Zeichen, Bindestriche, Unterstriche und Punkte.
+copy_to_clipboard = In Zwischenablage kopieren
+
+accessdenied_ip_whitelist_label = IP-Positivliste
+accessdenied_ip_whitelist_notice = Eine IP-Adresse pro Zeile. IPs auf dieser Liste können gesperrte Artikel und Kategorien immer aufrufen, z.B. für das Büronetz oder Staging-Umgebungen.
+accessdenied_your_ip = Deine aktuelle IP-Adresse:
+accessdenied_add_my_ip = Meine IP hinzufügen
+accessdenied_ip_whitelist_current_ip_section = Aktuelle IP
+
+accessdenied_inherited_from = Gesperrt durch Kategorie:
+accessdenied_goto_source_category = Zur Quell-Kategorie
+
+accessdenied_offline_labels_label = Offline-Status umbenennen (pro Sprache)
+accessdenied_offline_labels_notice = Überschreibt die Bezeichnung «offline» im REDAXO-Backend sprachabhängig. Ein Eintrag pro Zeile im Format: Sprachcode|Bezeichnung – z.B. de_de|Versteckt oder en_gb|Hidden. Der Sprachcode entspricht dem in REDAXO hinterlegten Backend-Locale (kleingeschrieben, z.B. de_de, en_gb).
+accessdenied_offline_labels_presets_title = Vorschläge für Standardsprachen
+accessdenied_offline_labels_presets_notice = Klick auf eine Sprache fügt einen Vorschlag für «versteckt» in der jeweiligen Sprache ins Textfeld ein – Bezeichnung danach nach Wunsch anpassen.

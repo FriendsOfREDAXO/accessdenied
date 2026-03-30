@@ -8,10 +8,12 @@ use rex_article;
 use rex_category;
 use rex_clang;
 use rex_response;
-use rex_redirect;
+use function rex_redirect;
+use function rex_server;
 use rex_backend_login;
 use rex_i18n;
 use rex_fragment;
+use rex_url;
 use rex_yrewrite;
 
 class Accessdenied
@@ -31,7 +33,7 @@ class Accessdenied
         if ($article->getValue('status') == 2) {
             return false;
         }
-        if ($package->getConfig('inherit') == true && $cat->getClosest(fn (rex_category $cat) => 2 == $cat->getValue('status'))) {
+        if ($cat !== null && $package->getConfig('inherit') == true && $cat->getClosest(static fn (rex_category $cat) => 2 == $cat->getValue('status'))) {
             return false;
         }
         return true;
@@ -40,18 +42,54 @@ class Accessdenied
     public static function addLockedStatus(rex_extension_point $ep): array
     {
         $subject = $ep->getSubject();
+
+        // Override the offline label (index 0) from config if configured for current locale.
+        // Format in config 'offline_labels': one 'locale|Label' per line, e.g. "de_de|Versteckt".
+        $locale = rex_i18n::getLocale();
+        $raw = (string) rex_addon::get('accessdenied')->getConfig('offline_labels', '');
+        foreach (array_filter(array_map('trim', explode("\n", $raw))) as $line) {
+            [$lang, $label] = array_pad(explode('|', $line, 2), 2, '');
+            if (trim($lang) === $locale && trim($label) !== '' && isset($subject[0])) {
+                $subject[0][0] = trim($label);
+                break;
+            }
+        }
+
         $subject[] = [rex_i18n::msg('accessdenied_locked'), 'rex-offline', 'fa fa-exclamation-triangle'];
         return $subject;
+    }
+
+    private static function getClientIp(): string
+    {
+        return rex_server('REMOTE_ADDR', 'string', '');
+    }
+
+    private static function isIpWhitelisted(): bool
+    {
+        $whitelist = (string) rex_addon::get('accessdenied')->getConfig('ip_whitelist', '');
+        if ($whitelist === '') {
+            return false;
+        }
+        $clientIp = self::getClientIp();
+        if ($clientIp === '') {
+            return false;
+        }
+        $ips = array_map('trim', explode("\n", $whitelist));
+        return array_find($ips, static fn(string $ip) => $ip === $clientIp) !== null;
     }
 
     public static function handleFrontendRedirect(): void
     {
         $package = rex_addon::get('accessdenied');
         $linkparameter = $package->getConfig('linkparameter') ?? 'preview';
-        
+
+        if (self::isIpWhitelisted()) {
+            return;
+        }
+
         if ($package->getConfig('inherit') == true && rex_category::getCurrent() != null) {
             $cat = rex_category::getCurrent();
-            if ($cat->getClosest(fn (rex_category $cat) => 2 == $cat->getValue('status')) && 
+            if ($cat->getClosest(static fn (rex_category $cat) => 2 == $cat->getValue('status')) && 
                 rex_request($linkparameter, 'string', '') != 'id-' . rex_article::getCurrent()->getId() && 
                 !rex_backend_login::hasSession()) {
                 self::redirectToNotFound();
@@ -96,18 +134,63 @@ class Accessdenied
         $subject = $ep->getSubject();
         $package = rex_addon::get('accessdenied');
         $linkparameter = $package->getConfig('linkparameter');
-        $panel = '<div class="alert alert-info">' . rex_i18n::msg('accessdenied_share') . '<br><strong id="sharelink">' . rex_yrewrite::getFullUrlByArticleId($params["article_id"]) . '?'.$linkparameter.'=id-' . rex_article::getCurrent()->getId() . '</strong>
-        <p><clipboard-copy for="sharelink" class="btn btn-small btn-copy btn-primary">'. rex_i18n::msg('copy_to_clipboard') .'</clipboard-copy></p> </div>';
+        $articleId = (int) $params['article_id'];
+        $clangId = (int) ($params['clang'] ?? rex_clang::getCurrentId());
+
+        $art = rex_article::get($articleId, $clangId);
+        $cat = $art?->getCategory();
+
+        // Detect whether the lock is inherited from a parent category
+        $inheritedFromCat = null;
+        if ($package->getConfig('inherit') && $cat !== null && $art?->getValue('status') != 2) {
+            $inheritedFromCat = $cat->getClosest(static fn (rex_category $c) => 2 == $c->getValue('status'));
+        }
+
+        if (rex_addon::get('yrewrite')->isAvailable()) {
+            $baseUrl = rex_yrewrite::getFullUrlByArticleId($articleId);
+        } else {
+            $baseUrl = rtrim(\rex::getServer(), '/') . \rex_getUrl($articleId, $clangId);
+        }
+
+        $separator = (str_contains($baseUrl, '?')) ? '&' : '?';
+        $shareUrl = $baseUrl . $separator . rex_escape((string) $linkparameter) . '=id-' . $articleId;
+        $inputId = 'sharelink-' . $articleId;
+
+        $panel = '<div class="alert alert-info">'
+            . rex_i18n::msg('accessdenied_share')
+            . '<br><strong id="' . $inputId . '">' . rex_escape($shareUrl) . '</strong>'
+            . '<p><clipboard-copy for="' . $inputId . '" class="btn btn-sm btn-primary">'
+            . rex_i18n::msg('copy_to_clipboard')
+            . '</clipboard-copy></p>'
+            . '</div>';
+
+        // If locked via inheritance: show navigation link to the source category
+        if ($inheritedFromCat instanceof rex_category) {
+            $catUrl = rex_url::backendController([
+                'page' => 'structure',
+                'category_id' => $inheritedFromCat->getParentId(),
+                'clang' => $clangId,
+            ]);
+            $panel .= '<p class="text-muted" style="margin:8px 0 4px">'
+                . '<i class="fa fa-sitemap"></i> '
+                . rex_i18n::msg('accessdenied_inherited_from')
+                . ' <strong>' . rex_escape($inheritedFromCat->getName() ?? '') . '</strong>'
+                . '</p>'
+                . '<a href="' . rex_escape($catUrl) . '" class="btn btn-sm btn-warning">'
+                . '<i class="fa fa-arrow-right"></i> '
+                . rex_i18n::msg('accessdenied_goto_source_category')
+                . '</a>';
+        }
 
         $fragment = new rex_fragment();
-        $fragment->setVar('title', '<i class="fa fa-exclamation-triangle" style="color: red"></i> ' . rex_i18n::msg('accessdenied_info'), false);
+        $fragment->setVar('title', '<i class="fa fa-exclamation-triangle accessdenied-warning-icon"></i> ' . rex_i18n::msg('accessdenied_info'), false);
         $fragment->setVar('body', $panel, false);
-        $fragment->setVar('article_id', $params["article_id"], false);
+        $fragment->setVar('article_id', $articleId, false);
 
         $fragment->setVar('collapse', true);
         $fragment->setVar('collapsed', false);
         $content = $fragment->parse('core/page/section.php');
 
-        return $subject . $content;
+        return $content . $subject;
     }
 }

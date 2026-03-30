@@ -7,3 +7,31 @@ a.quicknavi_left.qn_status_2 {
 {
    color: #984141;
 }
+
+/* Warning icon in article sidebar */
+.accessdenied-warning-icon {
+    color: var(--rex-danger, #c0392b);
+    display: inline-block;
+    animation: accessdenied-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes accessdenied-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.4; transform: scale(1.15); }
+}
+
+body.rex-theme-dark .accessdenied-warning-icon {
+    color: var(--rex-danger, #e74c3c);
+}
+
+@media (prefers-color-scheme: dark) {
+    body.rex-has-theme:not(.rex-theme-light) .accessdenied-warning-icon {
+        color: var(--rex-danger, #e74c3c);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .accessdenied-warning-icon {
+        animation: none;
+    }
+}

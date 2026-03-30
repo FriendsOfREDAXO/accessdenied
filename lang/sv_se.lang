@@ -1,0 +1,41 @@
+accessdenied_title = Åtkomst nekad
+accessdenied_locked = blockerad
+accessdenied_info = Den här artikeln är blockerad
+accessdenied_share = Du kan dela följande länk:
+# Benennung für die Addonrechte, sichtbar innerhalb der REDAXO-Administration unter Benutzer > Rollen > Allgemein
+
+perm_general_accessdenied[] = Rättighet för Accessdenied-AddOn
+
+# Einstellungsseite
+
+accessdenied_settings = Inställningar
+
+accessdenied_settings_default_status_label = Standardstatus för nya artiklar / kategorier
+accessdenied_settings_default_status_notice = När en ny artikel skapas i strukturen anges denna status. I produktionsmiljö bör artikeln förbli blockerad tills vidare; under utveckling kan allt publiceras direkt som standard.
+
+accessdenied_settings_default_status_online = online
+accessdenied_settings_default_status_offline = offline (REDAXO-standard)
+accessdenied_settings_default_status_blocked = blockerad (rekommenderas)
+
+accessdenied_settings_inherit_label = Ärv kategorisstatus
+accessdenied_settings_inherit_off = nej
+accessdenied_settings_inherit_on = ja
+
+accessdenied_linkparameter = Länkparameter
+accessdenied_linkparameter_empty = Länkparametern får inte vara tom.
+accessdenied_linkparameter_wrong = Använd endast alfanumeriska tecken, understreck, bindestreck och punkter.
+copy_to_clipboard = Kopiera till urklipp
+
+accessdenied_ip_whitelist_label = IP-allowlist
+accessdenied_ip_whitelist_notice = En IP-adress per rad. IP-adresser på den här listan kan alltid komma åt blockerade artiklar och kategorier, t.ex. för kontorsnätet eller testmiljöer.
+accessdenied_your_ip = Din nuvarande IP-adress:
+accessdenied_add_my_ip = Lägg till min IP
+accessdenied_ip_whitelist_current_ip_section = Aktuell IP
+
+accessdenied_inherited_from = Blockerad av kategori:
+accessdenied_goto_source_category = Gå till källkategorin
+
+accessdenied_offline_labels_label = Byt namn på offline-status (per språk)
+accessdenied_offline_labels_notice = Åsidosätter etiketten «offline» i REDAXO-bäckanden per språk. En post per rad i formatet: språkkod|etikett – t.ex. de_de|Dold eller en_gb|Hidden. Koden måste matcha backend-locale i REDAXO (gemener, t.ex. de_de, en_gb).
+accessdenied_offline_labels_presets_title = Förslag för standardspråk
+accessdenied_offline_labels_presets_notice = Klicka på ett språk för att infoga en föreslagen «dold»-etikett för det språket – anpassa texten efter behov.
