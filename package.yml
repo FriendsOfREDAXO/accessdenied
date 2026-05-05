@@ -1,5 +1,5 @@
 package: accessdenied
-version: '4.0.0'
+version: '4.0.1'
 author: Friends Of REDAXO
 supportpage: github.com/FriendsOfREDAXO/accessdenied
 requires:
@@ -7,7 +7,7 @@ requires:
         structure/content: '^2.1.0'
     redaxo: '^5.10.0'
     php:
-        version: '>=8.4'
+        version: '>=8.3'
     
 conflicts:
     packages:
