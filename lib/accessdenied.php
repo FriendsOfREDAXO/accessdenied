@@ -75,7 +75,7 @@ class Accessdenied
             return false;
         }
         $ips = array_map('trim', explode("\n", $whitelist));
-        return array_find($ips, static fn(string $ip) => $ip === $clientIp) !== null;
+        return in_array($clientIp, $ips, true);
     }
 
     public static function handleFrontendRedirect(): void

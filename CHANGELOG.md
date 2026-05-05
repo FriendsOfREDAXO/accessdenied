@@ -1,5 +1,10 @@
 # Changelog
 
+## 4.0.1 (2026-05-05)
+
+### Fehlerbehebungen
+- PHP-Mindestanforderung von `>=8.4` auf `>=8.3` gesenkt — `array_find()` wurde durch `in_array()` ersetzt
+
 ## 4.0.0 (2026-03-30)
 
 ### Breaking Changes
